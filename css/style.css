@@ -33,11 +33,11 @@ body {
     justify-content: center;
 }
 
-#add-task input.task {
+#add-task input.title {
     font-size: 1.2rem;
     margin-right: 5px;
     border-radius: 3px;
-    padding: 5px;
+    padding: 10px;
     width: 50%;
 }
 
@@ -70,6 +70,7 @@ body {
 .filter button.active {
     background: var(--main-color);
     color: var(--text-color);
+    transition: .5s ease;
 }
 
 .filter button.all {
@@ -93,49 +94,69 @@ body {
     margin-top: 15px;
 }
 
-.task-list .tasks {
+.task-list .task {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #3E4760;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.task-list .tasks .first{
+.task-list .task .first{
     display: flex;
     align-items: center;
 }
 
-.tasks .first p {
-    margin-left: 5px;
-}
-
-.tasks .first input#checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-.task-list .tasks .actions {
+.task-list .task .actions {
     display: flex;
     align-items: center;
 }
 
-.task-list .tasks .actions button {
+.task-list .task .actions button {
     margin: 5px;
     padding: 5px;
     background: transparent;
     cursor: pointer;
 }
 
-.task-list .tasks .actions button i {
+.task-list .task .actions button i {
     font-size: 2rem;
 }
 
+.task .first label {
+    margin: 0 5px 0 10px;
+}
+
+.task .first input#do {
+    width: 20px;
+    height: 20px;
+}
+
+.task-list .is_completed {
+    background: var(--main-color);
+    transition: .5s ease;
+}
+
+.task-list .is_completed label {
+    text-decoration: line-through;
+}
+
+.task-list .is_completed button.edit {
+    display: none;
+    transition: .5s ease-out;
+}
+
 .actions button.edit {
-    color: var(--main-color);
+    color: rgb(221, 130, 11);
 }
 
 .actions button.delete {
     color: #EC2222;
+}
+
+.hide-completed .is_completed, 
+.hide-todo .todo {
+    display: none;
 }
