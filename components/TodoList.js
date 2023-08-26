@@ -48,7 +48,7 @@ export class TodoList {
             this.#listElement.append(t.element)
         }
 
-        element.querySelector('#add-task').addEventListener('submit', (e) => this.#onSumbit(e));
+        element.querySelector('#add-task').addEventListener('submit', (e) => this.#onSubmit(e));
         element.querySelectorAll('.filter button').forEach((button) => {
             button.addEventListener('click', (e) => this.#toggleFilter(e))
         })
@@ -57,11 +57,11 @@ export class TodoList {
     /**
      * @param {SubmitEvent} e 
      */
-    #onSumbit(e) {
+    #onSubmit(e) {
         e.preventDefault();
         const form = e.currentTarget;
         let title = new FormData(form).get('title').toString().trim();
-        if(title == '') {
+        if(title === '') {
             return;
         }
 
